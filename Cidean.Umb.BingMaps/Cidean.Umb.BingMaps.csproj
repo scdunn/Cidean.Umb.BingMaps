@@ -256,7 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="App_Plugins\BingMaps\Config.json" />
+    <Content Include="App_Plugins\BingMaps\Config.js" />
     <None Include="App_Plugins\BingMaps\package.manifest" />
     <None Include="App_Plugins\BingMaps\Views\MacroPartials\bingMapView.cshtml" />
     <None Include="packages.config" />
