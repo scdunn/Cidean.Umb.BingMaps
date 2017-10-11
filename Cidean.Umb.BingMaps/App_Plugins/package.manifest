@@ -1,0 +1,26 @@
+{
+    //you can define multiple editors
+    propertyEditors: [
+        {
+            /*this must be a unique alias*/
+            alias: "bingMapEditor",
+            /*the name*/
+            name: "bing Map Editor",
+            /*the icon*/
+            icon: "icon-code",
+            /*grouping for "Select editor" dialog*/
+            group: "Rich Content",
+            /*the HTML file we will load for the editor*/
+            editor: {
+                valueType: "JSON",
+                view: "~/App_Plugins/BingMaps/bingMapEditor.html"
+            }
+        }
+    ]
+    ,
+    //array of files we want to inject into the application on app_start
+    javascript: [
+        '~/App_Plugins/BingMaps/bingMapEditor.controller.js',
+        '~/App_Plugins/BingMaps/bingMapEditor.resources.js'
+    ]
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>searchByAddressHTML</title>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+    </head>
+    <body>
+        <div id='printoutPanel'></div>
+        
+        <div id='myMap' style='width: 400px; height: 400px;'></div>
+        <script type='text/javascript'>
+            function loadMapScenario() {
+                var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+                    credentials: 'AvhwLFkvuFZ_wlVpPYWpvWzyFqHTZw2W1FmONiZEeVoeBOX7a1sSwI0B36t5Tewk'
+                });
+                Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
+                    var searchManager = new Microsoft.Maps.Search.SearchManager(map);
+                     
+                    var requestOptions = new Microsoft.Maps.Search.GeocodeRequestOptions();
+                    requestOptions.bounds = map.getBounds();
+                    requestOptions.where = 'New York City';
+                    requestOptions.callback = function (answer, userData) {
+
+                        var pushpin = new Microsoft.Maps.Pushpin(answer.results[0].location, { text: '1', title: 'My Store', subTitle: 'Subtitle' });
+                        map.entities.push(pushpin);
+                        map.setView({
+                            bounds: answer.results[0].bestView,
+                            mapTypeId: Microsoft.Maps.MapTypeId.aerial
+                        });
+                        var infobox = new Microsoft.Maps.Infobox(answer.results[0].location, { title: 'Map Center',
+                            description: 'Seattle'
+                        });
+                        infobox.setMap(map);
+
+                    };
+                    searchManager.geocode(requestOptions);
+
+                });
+
+
+            }
+        </script>
+        <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?branch=release&callback=loadMapScenario' async defer></script>
+    </body>
+</html>
