@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Cidean.Umb.BingMaps")]
-[assembly: AssemblyDescription("Bing Maps integration for Umbraco 7+.")]
+[assembly: AssemblyTitle("Cidean.Umbraco.BingMaps2")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Cidean, LLC")]
-[assembly: AssemblyProduct("Cidean.Umb.BingMaps")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Cidean.Umbraco.BingMaps2")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("96e8a727-0b83-42ec-a067-e756562feb05")]
+[assembly: Guid("5d080877-44a6-4e8b-bc86-80c0e56a7e5b")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -29,8 +29,7 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{96E8A727-0B83-42EC-A067-E756562FEB05}</ProjectGuid>
+    <ProjectGuid>{5D080877-44A6-4E8B-BC86-80C0E56A7E5B}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cidean.Umb.BingMaps</RootNamespace>
-    <AssemblyName>Cidean.Umb.BingMaps</AssemblyName>
+    <RootNamespace>Cidean.Umbraco.BingMaps2</RootNamespace>
+    <AssemblyName>Cidean.Umbraco.BingMaps2</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -43,18 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="businesslogic">
-      <HintPath>..\Libraries\businesslogic.dll</HintPath>
-    </Reference>
-    <Reference Include="cms">
-      <HintPath>..\Libraries\cms.dll</HintPath>
-    </Reference>
-    <Reference Include="controls">
-      <HintPath>..\Libraries\controls.dll</HintPath>
-    </Reference>
-    <Reference Include="interfaces">
-      <HintPath>..\Libraries\interfaces.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -77,32 +65,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="umbraco">
-      <HintPath>..\Libraries\umbraco.dll</HintPath>
-    </Reference>
-    <Reference Include="Umbraco.Core, Version=1.0.5948.18141, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libraries\Umbraco.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="umbraco.DataLayer, Version=1.0.5948.18143, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libraries\umbraco.DataLayer.dll</HintPath>
-    </Reference>
-    <Reference Include="umbraco.editorControls">
-      <HintPath>..\Libraries\umbraco.editorControls.dll</HintPath>
-    </Reference>
-    <Reference Include="umbraco.MacroEngines">
-      <HintPath>..\Libraries\umbraco.MacroEngines.dll</HintPath>
-    </Reference>
-    <Reference Include="Umbraco.ModelsBuilder">
-      <HintPath>..\Libraries\Umbraco.ModelsBuilder.dll</HintPath>
-    </Reference>
-    <Reference Include="umbraco.providers">
-      <HintPath>..\Libraries\umbraco.providers.dll</HintPath>
-    </Reference>
-    <Reference Include="Umbraco.Web.UI">
-      <HintPath>..\Libraries\Umbraco.Web.UI.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -140,37 +102,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\BingMaps\Config.js" />
-    <Content Include="App_Plugins\BingMaps\index.html" />
-    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapLocationPicker\BingMapLocationPicker.controller.js" />
-    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapLocationPicker\BingMapLocationPicker.html" />
-    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapLocationPicker\BingMapLocationPicker.Resources.js" />
-    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapPushPinEditor\BingMapPushPinEditor.controller.js" />
-    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapPushPinEditor\BingMapPushPinEditor.html" />
-    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapPushPinEditor\BingMapPushPinEditor.Resources.js" />
-    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapSettings\BingMapSettings.controller.js" />
-    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapSettings\BingMapSettings.html" />
     <Content Include="Global.asax" />
-    <Content Include="App_Plugins\BingMaps\Install\Setup.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="App_Plugins\BingMaps\Install\Setup.ascx.cs">
-      <DependentUpon>Setup.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="App_Plugins\BingMaps\Install\Setup.ascx.designer.cs">
-      <DependentUpon>Setup.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
-    <Content Include="App_Plugins\BingMaps\package.manifest" />
-    <Content Include="App_Plugins\BingMaps\Views\MacroPartials\bingMapView.cshtml" />
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -180,6 +127,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -192,7 +141,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>23974</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
@@ -213,9 +162,6 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
-  <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)App_Plugins" "C:\Users\ME\Documents\My Web Sites\Umbraco CMS\App_Plugins" /Y /I /E</PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
