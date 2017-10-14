@@ -1,0 +1,19 @@
+<div ng-controller="BingMapLocationPickerController" class="umb-editor">
+    <div class="row input-append span12">
+        <input placeholder="Address to search..." type="text" id="address" ng-model="model.value.address" class="span8" />
+        <button type="button" class="btn primary" ng-click='locate();'>Locate</button>
+    </div>
+    <div class="row">
+        <div class="span5">
+            <strong>Latitude</strong><br />
+            <input type="text" id="longitude" ng-model="model.value.latitude" class="span12" required/>
+        </div>
+        <div class="span5 offset2">
+            <strong>Longitude</strong><br />
+            <input type="text" id="latitude" ng-model="model.value.longitude" class="span12" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12 label label-success" ng-show="updated">Updated</div>
+    </div>
+</div>

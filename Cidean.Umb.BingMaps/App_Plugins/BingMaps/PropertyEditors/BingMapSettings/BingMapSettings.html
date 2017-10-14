@@ -1,0 +1,23 @@
+<div ng-controller="BingMapSettingsController" class="umb-editor">
+    <div class="row">
+        <div class="span5">
+            <strong>Height</strong><br />
+            <input type="text" id="longitude" ng-model="model.value.height" class="span12" required/>
+        </div>
+        <div class="span5 offset2">
+            <strong>Width</strong><br />
+            <input type="text" id="latitude" ng-model="model.value.width" class="span12" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="span5">
+            <strong>Map Type</strong><br />
+            <select  ng-model="model.value.mapType" class="span12" required >
+            <option value="aerial" selected>Aerial</option>
+            <option value="canvasDark">Canvas Dark</option>
+            <option value="canvasLight">Canvas Light</option>
+            </select>
+        </div>
+
+    </div>
+</div>

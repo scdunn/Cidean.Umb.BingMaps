@@ -1,0 +1,77 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@{ var mapNodeId = Int32.Parse(Model.MacroParameters["bingMapNode"].ToString());
+   
+   var mapNode = Umbraco.Content(mapNodeId);
+   
+   var selection = mapNode.Children.Where("visible");
+   var json = "";
+   foreach(var pushpin in selection)
+   {
+       json+= ",{";
+       json+= "\"text\":\"" + pushpin.bingMapPushPinText + "\",";
+       json+= "\"label\":\"" + pushpin.bingMapPushPinLabel + "\",";
+       json+= "\"description\":\"" + HttpUtility.HtmlEncode(pushpin.bingMapPushPinDesc) + "\",";
+       json+= "\"color\":\"#" + pushpin.bingMapPushPinColor + "\",";
+       json+= "\"location\":" +  pushpin.bingMapPushPinLocation + "}";
+   }
+   json = "[" + json.Substring(1) + "]";
+}
+
+   <div id='myMapPoint' style='width: @(mapNode.bingMapSettings.width); height:  @(mapNode.bingMapSettings.height);'></div>
+        <script type='text/javascript'>
+            var pinInfobox;
+			
+			var json = @Html.Raw(@json.Replace(System.Environment.NewLine, "").Replace("\\","").Replace("'",""));
+
+            
+
+            function addPushPin(map, location, label, description, color, text) {
+                var options = {text: text,color: color};
+
+                console.log(options);
+
+                
+                var pushpin = new Microsoft.Maps.Pushpin(map.getCenter(), options);
+                map.entities.push(pushpin);
+                pushpin.setLocation(location);
+                pushpin.Title = label;
+                pushpin.Description = description;
+                Microsoft.Maps.Events.addHandler(pushpin, 'click', displayInfobox);
+            }
+
+            function bingMapLoad() {
+
+            
+                //setup map credentials
+                var map = new Microsoft.Maps.Map(document.getElementById('myMapPoint'), {
+                    credentials: BingMapConfig.Credentials,
+                    showDashboard: false,
+                    showTermsLink:false,
+                    mapTypeId: Microsoft.Maps.MapTypeId.@mapNode.bingMapSettings.mapType
+                });
+
+                map.setView({ center: new Microsoft.Maps.Location(@mapNode.bingMapCenter.latitude, @mapNode.bingMapCenter.longitude) });
+                pinInfobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false
+                });
+                pinInfobox.setMap(map);
+
+                console.log(json);
+                for (var i = 0; i < json.length; i++){
+                    var obj = json[i];
+                    addPushPin(map, new Microsoft.Maps.Location(obj.location.latitude, obj.location.longitude), obj.label, obj.description, obj.color, obj.text);
+                }
+                
+            }
+
+            function displayInfobox(e) {
+                pinInfobox.setOptions({ title: e.target.Title, description: e.target.Description, visible: true, offset: new Microsoft.Maps.Point(0, 25) });
+                pinInfobox.setLocation(e.target.getLocation());
+            }
+        </script>
+        <script type='text/javascript' src='/App_Plugins/BingMaps/Config.json'></script>
+   
+        <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?branch=release&callback=bingMapLoad' async defer></script>
+   
+        
+  

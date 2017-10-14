@@ -252,20 +252,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="App_Plugins\package.manifest" />
-    <None Include="App_Plugins\Views\MacroPartials\bingMap.cshtml" />
+    <None Include="App_Plugins\BingMaps\Config.json" />
+    <None Include="App_Plugins\BingMaps\package.manifest" />
+    <None Include="App_Plugins\BingMaps\Views\MacroPartials\bingMapView.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\bingMapEditor.controller.js" />
-    <Content Include="App_Plugins\bingMapEditor.html" />
-    <Content Include="App_Plugins\bingMapEditor.Resources.js" />
-    <Content Include="App_Plugins\index.html" />
+    <Content Include="App_Plugins\BingMaps\index.html" />
+    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapLocationPicker\BingMapLocationPicker.controller.js" />
+    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapLocationPicker\BingMapLocationPicker.html" />
+    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapLocationPicker\BingMapLocationPicker.Resources.js" />
+    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapPushPinEditor\BingMapPushPinEditor.controller.js" />
+    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapPushPinEditor\BingMapPushPinEditor.html" />
+    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapPushPinEditor\BingMapPushPinEditor.Resources.js" />
+    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapSettings\BingMapSettings.controller.js" />
+    <Content Include="App_Plugins\BingMaps\PropertyEditors\BingMapSettings\BingMapSettings.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
